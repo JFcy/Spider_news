@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音频爬取</title>
+</head>
+<body>
+<h1>喜马拉雅中新闻联播音频数据的获取</h1>
+<div>
+    <form action="/user", method="post">
+        <input name="number_tot" placeholder="请输入下载数量">
+        <input type="submit" value="开始爬取">
+    </form>
+    <form action="/select", method="post">
+        <input name="number" placeholder="请输入查询数量">
+        <input type="submit" value="开始查找">
+    </form>
+</div>
+<h1>搜索结果</h1>
+    {% for each in result_list %}
+        <p>《新闻联播》 {{each[0]}} 下载链接：<a href="{{each[1]}}">下载</a></p>
+    {% endfor %}
+<h1>已完成：</h1>
+    {% for name in name_list %}
+        <p>{{ name }} 收录完成</p>
+    {% endfor %}
+</body>
+</html>
